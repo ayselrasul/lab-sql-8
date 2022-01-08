@@ -26,11 +26,11 @@ group by name;
 
 -- Which actor has appeared in the most films?
 
-select first_name,last_name,count(*) as number_of_films
+select first_name,last_name
 from sakila.film_actor fa
 join sakila.actor a on a.actor_id = fa.actor_id
-group by first_name,last_name
-Order by number_of_films Desc
+group by a.actor_id
+Order by count(*) Desc
 Limit 1;
 
 -- Most active customer (the customer that has rented the most number of films)
